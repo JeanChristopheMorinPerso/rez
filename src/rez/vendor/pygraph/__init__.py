@@ -41,8 +41,8 @@ C{pygraph.algorithms.heuristics}.
 A quick introductory example:
 
 >>> # Import the module and instantiate a graph object
->>> from rez.vendor.pygraph.classes.graph import graph
->>> from rez.vendor.pygraph.algorithms.searching import depth_first_search
+>>> from pygraph.classes.graph import graph
+>>> from pygraph.algorithms.searching import depth_first_search
 >>> gr = graph()
 >>> # Add nodes
 >>> gr.add_nodes(['X','Y','Z'])

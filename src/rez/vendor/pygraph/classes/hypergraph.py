@@ -30,12 +30,12 @@ Hypergraph class
 
 
 # Imports
-from rez.vendor.pygraph.classes.graph import graph
-from rez.vendor.pygraph.classes.exceptions import AdditionError
+from pygraph.classes.graph import graph
+from pygraph.classes.exceptions import AdditionError
 
-from rez.vendor.pygraph.mixins.labeling import labeling
-from rez.vendor.pygraph.mixins.common import common
-from rez.vendor.pygraph.mixins.basegraph import basegraph
+from pygraph.mixins.labeling import labeling
+from pygraph.mixins.common import common
+from pygraph.mixins.basegraph import basegraph
 
 class hypergraph (basegraph, common, labeling):
     """

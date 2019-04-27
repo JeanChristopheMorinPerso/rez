@@ -1,0 +1,15 @@
+amqp==1.4.9
+atomicwrites==1.2.1
+colorama==0.3.1
+distlib==0.2.4
+enum34
+importlib==1.0.4
+lockfile==0.9.1
+python-memcached==1.53
+progress==1.2
+pydot==1.0.28
+#python-graph-core==1.8.2 This one is just not working from PyPI :(
+pyparsing==2.0.2  ## Transitive. ALso, 2.0.1 failed to be installed.
+six==1.8.0
+sortedcontainers==1.5.7
+PyYAML==3.10

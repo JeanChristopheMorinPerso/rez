@@ -1,3 +1,12 @@
+import os
+import sys
+
+_ROOT = os.path.dirname(os.path.abspath(__file__))
+_VENDOR = os.path.join(_ROOT, "vendor")
+
+# Add vendored dependencies to path.
+sys.path.insert(0, _VENDOR)
+
 from rez.utils._version import _rez_version
 import logging.config
 import atexit
@@ -11,11 +20,14 @@ __license__ = "LGPL"
 
 module_root_path = __path__[0]
 
-
-logging_conf_file = os.environ.get(
-    'REZ_LOGGING_CONF',
-    os.path.join(module_root_path, 'utils', 'logging.conf'))
-logging.config.fileConfig(logging_conf_file, disable_existing_loggers=False)
+try:
+    logging_conf_file = os.environ.get(
+        'REZ_LOGGING_CONF',
+        os.path.join(module_root_path, 'utils', 'logging.conf'))
+    logging.config.fileConfig(logging_conf_file, disable_existing_loggers=False)
+except ImportError:
+    # We are creating the artifact
+    pass
 
 
 # actions registered on SIGUSR1

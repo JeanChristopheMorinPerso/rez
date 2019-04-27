@@ -30,7 +30,7 @@ Sorting algorithms.
 
 
 # Imports
-from rez.vendor.pygraph.algorithms.searching import depth_first_search
+from pygraph.algorithms.searching import depth_first_search
 
 # Topological sorting
 def topological_sorting(graph):

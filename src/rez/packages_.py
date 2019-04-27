@@ -7,11 +7,11 @@ from rez.utils import reraise
 from rez.utils.sourcecode import SourceCode
 from rez.utils.data_utils import cached_property
 from rez.utils.formatting import StringFormatMixin, StringFormatType
-from rez.utils.schema import schema_keys
+from rez.utils._schema import schema_keys
 from rez.utils.resources import ResourceHandle, ResourceWrapper
 from rez.exceptions import PackageFamilyNotFoundError, ResourceError
-from rez.vendor.version.version import VersionRange
-from rez.vendor.version.requirement import VersionedObject
+from version.version import VersionRange
+from version.requirement import VersionedObject
 from rez.serialise import FileFormat
 from rez.config import config
 import sys

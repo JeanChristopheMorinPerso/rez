@@ -7,7 +7,7 @@ from rez.util import create_forwarding_script
 from rez.packages_ import get_developer_package
 from rez.resolved_context import ResolvedContext
 from rez.config import config
-from rez.utils.yaml import dump_yaml
+from rez.utils._yaml import dump_yaml
 import functools
 import os.path
 import sys

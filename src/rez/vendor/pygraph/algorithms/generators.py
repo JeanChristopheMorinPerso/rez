@@ -31,9 +31,9 @@ Random graph generators.
 
 
 # Imports
-from rez.vendor.pygraph.classes.graph import graph
-from rez.vendor.pygraph.classes.digraph import digraph
-from rez.vendor.pygraph.classes.hypergraph import hypergraph
+from pygraph.classes.graph import graph
+from pygraph.classes.digraph import digraph
+from pygraph.classes.hypergraph import hypergraph
 from random import randint, choice, shuffle #@UnusedImport
 from time import time
 

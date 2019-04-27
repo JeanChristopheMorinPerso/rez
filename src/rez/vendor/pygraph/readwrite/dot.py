@@ -30,11 +30,11 @@ Functions for reading and writing graphs in Dot language.
 
 
 # Imports
-from rez.vendor.pygraph.classes.digraph import digraph
-from rez.vendor.pygraph.classes.exceptions import InvalidGraphType
-from rez.vendor.pygraph.classes.graph import graph
-from rez.vendor.pygraph.classes.hypergraph import hypergraph
-from rez.vendor.pydot import pydot
+from pygraph.classes.digraph import digraph
+from pygraph.classes.exceptions import InvalidGraphType
+from pygraph.classes.graph import graph
+from pygraph.classes.hypergraph import hypergraph
+import pydot
 
 # Values
 colors = ['aquamarine4', 'blue4', 'brown4', 'cornflowerblue', 'cyan4',

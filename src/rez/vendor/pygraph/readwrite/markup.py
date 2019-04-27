@@ -30,10 +30,10 @@ Functions for reading and writing graphs in a XML markup.
 
 
 # Imports
-from rez.vendor.pygraph.classes.digraph import digraph
-from rez.vendor.pygraph.classes.exceptions import InvalidGraphType
-from rez.vendor.pygraph.classes.graph import graph
-from rez.vendor.pygraph.classes.hypergraph import hypergraph
+from pygraph.classes.digraph import digraph
+from pygraph.classes.exceptions import InvalidGraphType
+from pygraph.classes.graph import graph
+from pygraph.classes.hypergraph import hypergraph
 from xml.dom.minidom import Document, parseString
 
 

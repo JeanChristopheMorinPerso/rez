@@ -3,7 +3,7 @@ Manages loading of all types of Rez plugins.
 """
 from rez.config import config, expand_system_vars, _load_config_from_filepaths
 from rez.utils.formatting import columnise
-from rez.utils.schema import dict_to_schema
+from rez.utils._schema import dict_to_schema
 from rez.utils.data_utils import LazySingleton, cached_property, deep_update
 from rez.utils.logging_ import print_debug, print_warning
 from rez.exceptions import RezPluginError
@@ -95,7 +95,7 @@ class RezPluginType(object):
 
     def load_plugins(self):
         import pkgutil
-        from rez.backport.importlib import import_module
+        from importlib import import_module
         type_module_name = 'rezplugins.' + self.type_name
         package = import_module(type_module_name)
 

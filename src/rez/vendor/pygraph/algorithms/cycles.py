@@ -30,9 +30,9 @@ Cycle detection algorithms.
 
 
 # Imports
-from rez.vendor.pygraph.classes.exceptions import InvalidGraphType
-from rez.vendor.pygraph.classes.digraph import digraph as digraph_class
-from rez.vendor.pygraph.classes.graph import graph as graph_class
+from pygraph.classes.exceptions import InvalidGraphType
+from pygraph.classes.digraph import digraph as digraph_class
+from pygraph.classes.graph import graph as graph_class
 from sys import getrecursionlimit, setrecursionlimit
 
 def find_cycle(graph):

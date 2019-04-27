@@ -29,7 +29,7 @@ Edmond Chow's heuristic for A*.
 
 
 # Imports
-from rez.vendor.pygraph.algorithms.minmax import shortest_path 
+from pygraph.algorithms.minmax import shortest_path 
 
 
 class chow(object):

@@ -2,7 +2,7 @@
 test importing of all source
 """
 from rez.tests.util import TestBase
-import rez.vendor.unittest2 as unittest
+import unittest2 as unittest
 
 
 class TestImports(TestBase):
@@ -45,10 +45,10 @@ class TestImports(TestBase):
         import rez.utils.logging_
         import rez.utils.platform_
         import rez.utils.resources
-        import rez.utils.schema
+        import rez.utils._schema
         import rez.utils.scope
         import rez.utils.memcached
-        import rez.utils.yaml
+        import rez.utils._yaml
 
 
 if __name__ == '__main__':

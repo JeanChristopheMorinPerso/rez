@@ -1,7 +1,7 @@
-from rez.vendor.version.version import Version, AlphanumericVersionToken, \
+from version.version import Version, AlphanumericVersionToken, \
     VersionRange, reverse_sort_key, _ReversedComparable
-from rez.vendor.version.requirement import Requirement, RequirementList
-from rez.vendor.version.util import VersionError
+from version.requirement import Requirement, RequirementList
+from version.util import VersionError
 import random
 import textwrap
 import unittest

@@ -30,7 +30,7 @@ Search algorithms.
 
 
 # Imports
-from rez.vendor.pygraph.algorithms.filters.null import null
+from pygraph.algorithms.filters.null import null
 from sys import getrecursionlimit, setrecursionlimit
 
 

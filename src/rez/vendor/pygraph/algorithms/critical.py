@@ -31,9 +31,9 @@ Critical path algorithms and transitivity detection algorithm.
 
 
 # Imports
-from rez.vendor.pygraph.algorithms.cycles import find_cycle
-from rez.vendor.pygraph.algorithms.traversal import traversal
-from rez.vendor.pygraph.algorithms.sorting import topological_sorting
+from pygraph.algorithms.cycles import find_cycle
+from pygraph.algorithms.traversal import traversal
+from pygraph.algorithms.sorting import topological_sorting
 
 def _intersection(A,B):
     """

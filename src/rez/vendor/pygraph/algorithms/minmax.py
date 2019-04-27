@@ -35,10 +35,10 @@ Minimization and maximization algorithms.
 shortest_path_bellman_ford
 """
 
-from rez.vendor.pygraph.algorithms.utils import heappush, heappop
-from rez.vendor.pygraph.classes.exceptions import NodeUnreachable
-from rez.vendor.pygraph.classes.exceptions import NegativeWeightCycleError
-from rez.vendor.pygraph.classes.digraph import digraph
+from pygraph.algorithms.utils import heappush, heappop
+from pygraph.classes.exceptions import NodeUnreachable
+from pygraph.classes.exceptions import NegativeWeightCycleError
+from pygraph.classes.digraph import digraph
 import bisect
 
 # Minimal spanning tree

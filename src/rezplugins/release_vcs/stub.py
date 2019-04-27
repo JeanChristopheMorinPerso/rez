@@ -3,8 +3,8 @@ Stub version control system, for testing purposes
 """
 from rez.release_vcs import ReleaseVCS
 from rez.utils.logging_ import print_warning
-from rez.utils.yaml import dump_yaml
-from rez.vendor import yaml
+from rez.utils._yaml import dump_yaml
+import yaml
 import os.path
 import time
 

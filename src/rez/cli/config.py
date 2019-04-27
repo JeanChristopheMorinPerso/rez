@@ -21,7 +21,7 @@ def setup_parser(parser, completions=False):
 
 def command(opts, parser, extra_arg_groups=None):
     from rez.config import config
-    from rez.utils.yaml import dump_yaml
+    from rez.utils._yaml import dump_yaml
 
     if opts.search_list:
         for filepath in config.filepaths:

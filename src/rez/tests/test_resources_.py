@@ -5,10 +5,10 @@ from rez.tests.util import TestBase
 from rez.utils.resources import Resource, ResourcePool, ResourceHandle, \
     ResourceWrapper
 from rez.package_repository import PackageRepository
-from rez.utils.schema import Required
+from rez.utils._schema import Required
 from rez.exceptions import ResourceError
-import rez.vendor.unittest2 as unittest
-from rez.vendor.schema.schema import Schema, Use, And, Optional
+import unittest2 as unittest
+from schema.schema import Schema, Use, And, Optional
 
 
 class PetResourceError(Exception):

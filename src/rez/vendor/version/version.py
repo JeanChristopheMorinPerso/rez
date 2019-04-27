@@ -16,9 +16,9 @@ The empty version '', and empty version range '', are also handled. The empty
 version is used to denote unversioned objects. The empty version range, also
 known as the 'any' range, is used to refer to any version of an object.
 """
-from rez.vendor.version.util import VersionError, ParseException, _Common, \
+from .util import VersionError, ParseException, _Common, \
     total_ordering, dedup
-import rez.vendor.pyparsing.pyparsing as pp
+import pyparsing as pp
 from bisect import bisect_left
 import copy
 import string

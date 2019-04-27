@@ -1,5 +1,5 @@
-from rez.vendor.version.version import Version, VersionRange
-from rez.vendor.version.util import _Common
+from .version import Version, VersionRange
+from .util import _Common
 import re
 
 
