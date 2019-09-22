@@ -66,6 +66,7 @@ def _publish_message(host, amqp_settings, routing_key, data):
             password=amqp_settings.get("password"),
             connect_timeout=amqp_settings.get("connect_timeout")
         ))
+        conn.connect()
     except socket.error as e:
         print_error("Cannot connect to the message broker: %s" % (e))
         return False
