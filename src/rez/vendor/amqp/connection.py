@@ -7,7 +7,7 @@ import socket
 import uuid
 import warnings
 
-from vine import ensure_promise
+from rez.vendor.vine import ensure_promise
 
 from . import __version__, sasl, spec
 from .abstract_channel import AbstractChannel

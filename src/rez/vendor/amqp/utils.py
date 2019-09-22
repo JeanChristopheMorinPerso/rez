@@ -4,8 +4,8 @@ from __future__ import absolute_import, unicode_literals
 import logging
 
 # enables celery 3.1.23 to start again
-from vine import promise  # noqa
-from vine.utils import wraps
+from rez.vendor.vine import promise  # noqa
+from rez.vendor.vine.utils import wraps
 
 from .five import PY3, string_t, text_t
 

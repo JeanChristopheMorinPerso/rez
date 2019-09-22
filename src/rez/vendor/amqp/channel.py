@@ -6,7 +6,7 @@ import logging
 import socket
 from collections import defaultdict
 
-from vine import ensure_promise
+from rez.vendor.vine import ensure_promise
 
 from . import spec
 from .abstract_channel import AbstractChannel

@@ -4,6 +4,6 @@ from __future__ import absolute_import, unicode_literals
 
 import sys
 
-import vine.five
+import rez.vendor.vine.five
 
-sys.modules[__name__] = vine.five
+sys.modules[__name__] = rez.vendor.vine.five

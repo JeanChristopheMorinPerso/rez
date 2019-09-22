@@ -10,7 +10,7 @@ from weakref import ref
 try:
     from weakref import WeakMethod
 except ImportError:
-    from vine.backports.weakref_backports import WeakMethod
+    from rez.vendor.vine.backports.weakref_backports import WeakMethod
 
 from .abstract import Thenable
 from .five import python_2_unicode_compatible, reraise

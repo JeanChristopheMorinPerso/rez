@@ -5,7 +5,7 @@ import socket
 import warnings
 from io import BytesIO
 
-from amqp.serialization import _write_table
+from rez.vendor.amqp.serialization import _write_table
 
 
 class SASL(object):

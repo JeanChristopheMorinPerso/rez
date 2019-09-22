@@ -4,7 +4,7 @@ from __future__ import absolute_import, unicode_literals
 
 import logging
 
-from vine import ensure_promise, promise
+from rez.vendor.vine import ensure_promise, promise
 
 from .exceptions import AMQPNotImplementedError, RecoverableConnectionError
 from .five import bytes_if_py2
