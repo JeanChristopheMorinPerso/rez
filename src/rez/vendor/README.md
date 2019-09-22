@@ -54,17 +54,6 @@ Note that the latest versions column is just to give us an idea of how far back 
 
 <!-- ######################################################### -->
 <tr><td>
-    attrs
-</td><td>
-    19.1.0 (Mar 3, 2019)
-</td><td>
-    19.1.0 (Mar 3, 2019)
-</td><td>
-    Added (July 2019) to enable the use of packaging lib that depends on it.
-</td></tr>
-
-<!-- ######################################################### -->
-<tr><td>
     colorama
 </td><td>
     0.4.1 (Nov 25, 2018)
@@ -126,11 +115,11 @@ Note that the latest versions column is just to give us an idea of how far back 
 <tr><td>
     packaging
 </td><td>
-    19.0 (Jan 20, 2019)
+    19.2 (Sep 18, 2019)
 </td><td>
-    19.0 (Jan 20, 2019)
+    19.2
 </td><td>
-    Added (July 2019) to enable PEP440 compatible versions handling.
+    Added to enable PEP440 compatible versions handling and more.
 </td></tr>
 
 <!-- ######################################################### -->
