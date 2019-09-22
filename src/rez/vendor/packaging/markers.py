@@ -8,9 +8,9 @@ import os
 import platform
 import sys
 
-from rez.vendor.pyparsing.pyparsing import ParseException, ParseResults, stringStart, stringEnd
-from rez.vendor.pyparsing.pyparsing import ZeroOrMore, Group, Forward, QuotedString
-from rez.vendor.pyparsing.pyparsing import Literal as L  # noqa
+from pyparsing import ParseException, ParseResults, stringStart, stringEnd
+from pyparsing import ZeroOrMore, Group, Forward, QuotedString
+from pyparsing import Literal as L  # noqa
 
 from ._compat import string_types
 from .specifiers import Specifier, InvalidSpecifier
@@ -259,7 +259,7 @@ def default_environment():
         "platform_version": platform.version(),
         "python_full_version": platform.python_version(),
         "platform_python_implementation": platform.python_implementation(),
-        "python_version": platform.python_version()[:3],
+        "python_version": ".".join(platform.python_version_tuple()[:2]),
         "sys_platform": sys.platform,
     }
 
