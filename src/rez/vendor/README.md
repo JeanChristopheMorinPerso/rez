@@ -23,9 +23,9 @@ Note that the latest versions column is just to give us an idea of how far back 
 <tr><td>
     amqp
 </td><td>
-    1.4.9 (Jan 8, 2016)
+    2.5.1 (Aug 14, 2019)
 </td><td>
-    2.4.2 (Mar 3, 2019)
+    2.5.1
 </td><td>
     -
 </td></tr>
@@ -199,6 +199,17 @@ Note that the latest versions column is just to give us an idea of how far back 
     2.1.0 (Mar 5, 2019)
 </td><td>
     Used in the resolver. Updating would possibly give us some speed improvements.
+</td></tr>
+
+<!-- ######################################################### -->
+<tr><td>
+    vine
+</td><td>
+    1.3.0 (Mar 19, 2019)
+</td><td>
+    1.3.0
+</td><td>
+    Dependency of amqp.
 </td></tr>
 
 <!-- ######################################################### -->

@@ -1,9 +1,6 @@
 Copyright (c) 2015-2016 Ask Solem & contributors.  All rights reserved.
-Copyright (c) 2012-2014 GoPivotal, Inc.  All rights reserved.
-Copyright (c) 2009, 2010, 2011, 2012 Ask Solem, and individual contributors.  All rights reserved.
-Copyright (C) 2007-2008 Barry Pederson <bp@barryp.org>. All rights reserved.
 
-py-amqp is licensed under The BSD License (3 Clause, also known as
+Vine is licensed under The BSD License (3 Clause, also known as
 the new BSD license).  The license is an OSI approved Open Source
 license and is GPL-compatible(1).
 
@@ -36,12 +33,20 @@ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 
+Documentation License
+=====================
+
+The documentation portion of Vine (the rendered contents of the
+"docs" directory of a software distribution or checkout) is supplied
+under the "Creative Commons Attribution-ShareAlike 4.0
+International" (CC BY-SA 4.0) License as described by
+http://creativecommons.org/licenses/by-sa/4.0/
 
 Footnotes
 =========
 (1) A GPL-compatible license makes it possible to
-    combine Celery with other software that is released
+    combine Vine with other software that is released
     under the GPL, it does not mean that we're distributing
-    Celery under the GPL license.  The BSD license, unlike the GPL,
+    Vine under the GPL license.  The BSD license, unlike the GPL,
     let you distribute a modified version without making your
     changes open source.
