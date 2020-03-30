@@ -64,7 +64,7 @@ jobs:
       - name: Install Rez
         run: |
           mkdir ./build
-          python ./install.py ./build
+          python ./install.py --test ./build
 
       - name: Run Rez Tests
         run: |

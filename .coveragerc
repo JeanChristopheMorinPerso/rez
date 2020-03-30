@@ -3,4 +3,6 @@ branch = True
 omit =
     src/rez/tests/*,
     src/rez/completion/*,
-    src/rez/vendor/*
+    src/rez/vendor/*,
+    src/rez/backport/*,
+    src/rez/bind/*

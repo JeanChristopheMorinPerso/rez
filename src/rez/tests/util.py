@@ -24,6 +24,7 @@ class TestBase(unittest.TestCase):
         cls.settings = {}
 
     def setUp(self):
+        super(TestBase, self).setUp()
         self.maxDiff = None
         os.environ["REZ_QUIET"] = "true"
 
@@ -40,6 +41,7 @@ class TestBase(unittest.TestCase):
         pass
 
     def tearDown(self):
+        super(TestBase, self).tearDown()
         self.teardown_config()
 
     # These are moved into their own functions so update_settings can call

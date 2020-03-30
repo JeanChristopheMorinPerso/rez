@@ -28,16 +28,23 @@ def get_specifications():
 
     for attr, obj in sys.modules[__name__].__dict__.items():
         scriptname = getattr(obj, "__scriptname__", None)
+        extraname = getattr(obj, "__extraname__", None)
         if scriptname:
             spec = "%s = rez.cli._entry_points:%s" % (scriptname, attr)
+            if extraname:
+                if extraname == 'test' and not os.environ.get('REZ_INSTALLING_WITH_TESTS'):
+                    print('Skipping %s' % scriptname)
+                    continue
+                spec += " [%s]" % extraname
             specs[scriptname] = spec
 
     return specs
 
 
-def scriptname(name):
+def scriptname(name, extra=None):
     def decorator(fn):
         setattr(fn, "__scriptname__", name)
+        setattr(fn, "__extraname__", extra)
         return fn
     return decorator
 
@@ -215,7 +222,7 @@ def run_rez_search():
     return run("search")
 
 
-@scriptname("rez-selftest")
+@scriptname("rez-selftest", extra="test")
 def run_rez_selftest():
     check_production_install()
     from rez.cli._main import run

@@ -23,15 +23,7 @@ def setup_parser(parser, completions=False):
         "-s", "--only-shell", metavar="SHELL",
         help="limit shell-dependent tests to the specified shell")
 
-    # make an Action that will append the appropriate test to the "--test" arg
-    class AddTestModuleAction(argparse.Action):
-        def __call__(self, parser, namespace, values, option_string=None):
-            name = option_string.lstrip('-')
-            if getattr(namespace, "module_tests", None) is None:
-                namespace.module_tests = []
-            namespace.module_tests.append(name)
-
-    # find unit tests
+    # Find tests
     tests = []
     prefix = "test_"
     for importer, name, ispkg in iter_modules([tests_dir]):
@@ -41,17 +33,20 @@ def setup_parser(parser, completions=False):
             all_module_tests.append(name_)
             tests.append((name_, module))
 
+    group = parser.add_argument_group("tests")
     # create argparse entry for each module's unit test
     for name, module in sorted(tests):
-        parser.add_argument(
-            "--%s" % name, action=AddTestModuleAction, nargs=0,
-            dest="module_tests", default=[],
-            help=module.__doc__.strip().rstrip('.'))
+        group.add_argument(
+            "--%s" % name, action="append_const",
+            dest='module_tests', default=[], const=name,
+            help=module.__doc__.strip().rstrip('.')
+        )
 
 
 def command(opts, parser, extra_arg_groups=None):
     import sys
-    from unittest.main import main
+
+    import pytest
 
     os.environ["__REZ_SELFTEST_RUNNING"] = "1"
 
@@ -62,11 +57,14 @@ def command(opts, parser, extra_arg_groups=None):
         module_tests = all_module_tests
     else:
         module_tests = opts.module_tests
-    module_tests = [("rez.tests.test_%s" % x) for x in sorted(module_tests)]
-    tests = module_tests + opts.tests
 
-    argv = [sys.argv[0]] + tests
-    main(module=None, argv=argv, verbosity=opts.verbose)
+    dirname = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    tests = []
+    for module in sorted(module_tests):
+        tests.append(os.path.join(dirname, 'tests', 'test_{0}.py'.format(module)))
+    tests += opts.tests
+
+    pytest.main(tests)
 
 
 # Copyright 2013-2016 Allan Johns.

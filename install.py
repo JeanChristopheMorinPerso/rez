@@ -101,7 +101,7 @@ def copy_completion_scripts(dest_dir):
     return None
 
 
-def install(dest_dir, print_welcome=False):
+def install(dest_dir, print_welcome=False, test=False, dev=False):
     """Install rez into the given directory.
 
     Args:
@@ -113,7 +113,7 @@ def install(dest_dir, print_welcome=False):
     create_environment(dest_dir)
 
     # install rez from source
-    install_rez_from_source(dest_dir)
+    install_rez_from_source(dest_dir, test=test, dev=dev)
 
     # patch the rez binaries
     patch_rez_binaries(dest_dir)
@@ -151,11 +151,21 @@ def install(dest_dir, print_welcome=False):
         print('')
 
 
-def install_rez_from_source(dest_dir):
+def install_rez_from_source(dest_dir, test=False, dev=False):
     _, py_executable = get_py_venv_executable(dest_dir)
 
     # install via pip
-    run_command([py_executable, "-m", "pip", "install", "."])
+    package = "."
+    if test:
+        os.environ['REZ_INSTALLING_WITH_TESTS'] = '1'
+        package += "[test]"
+    command = [py_executable, "-m", "pip", "install"]
+    if dev:
+        command += ['-e']
+
+    command += [package]
+
+    run_command(command)
 
 
 def install_as_rez_package(repo_path):
@@ -209,6 +219,14 @@ if __name__ == "__main__":
         "only (no cli tools), and DIR is expected to be the path to a rez "
         "package repository (and will default to ~/packages instead).")
     parser.add_argument(
+        "-t", "--test", action="store_true",
+        help="Install with rez-selftest and its dependencies."
+    )
+    parser.add_argument(
+        '--dev', action='store_true',
+        help='Pip dev mode.'
+    )
+    parser.add_argument(
         "DIR", nargs='?',
         help="Destination directory. If '{version}' is present, it will be "
         "expanded to the rez version. Default: /opt/rez")
@@ -242,4 +260,4 @@ if __name__ == "__main__":
     if opts.as_rez_package:
         install_as_rez_package(dest_dir)
     else:
-        install(dest_dir, print_welcome=True)
+        install(dest_dir, print_welcome=True, test=opts.test, dev=opts.dev)

@@ -65,7 +65,7 @@ setup(
                                            "tests"]),
     package_data = {
         'rez':
-            ['utils/logging.conf'] +
+            ['utils/logging.conf', 'tests/pytest.ini'] +
             ['README*'] +
             find_files('*', 'completion') +
             find_files('*', 'tests/data'),
@@ -76,6 +76,11 @@ setup(
         'rezgui':
             find_files('rezguiconfig', root='rezgui') +
             find_files('*', 'icons', root='rezgui')
+    },
+    extras_require={
+        'test': [
+            'pytest', 'pytest-cov'
+        ]
     },
     classifiers = [
         "Development Status :: 5 - Production/Stable",
