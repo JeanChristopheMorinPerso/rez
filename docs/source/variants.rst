@@ -78,7 +78,7 @@ There are two problems with the variant subpath as illustrated above:
 
 You can avoid these issues by using :attr:`hashed_variants`. This sets the variant
 sub-path to a hash of its requirements, rather than the requirements themselves.
-The resulting sub-directly is somewhat unwieldy (example:
+The resulting sub-directory is somewhat unwieldy (example:
 ``83e0c415db1b602f9d59cee028da6ac785e9bacc``). However, another feature,
 :data:`variant shortlinks <use_variant_shortlinks>`, deals with this. A shortlink is a symlink to each variant,
 created in a separate subdirectory (default ``_v``).
