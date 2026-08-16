@@ -1,0 +1,49 @@
+rules:
+  - id: no-os-path-realpath
+    languages:
+      - python
+    severity: HIGH
+    message: |-
+      Do not use `os.path.realpath`. Use `rez.utils.filesystem.real_path`
+      instead. On Windows, `os.path.realpath` (since Python 3.8) resolves mapped
+      drive letters to their UNC equivalents and follows junctions/symlinks,
+      which can break path comparisons and break callers that expect
+      drive-letter paths. `rez.utils.filesystem.real_path` honours the
+      `resolve_links_on_windows` config setting and preserves the path style
+      supplied by the caller. See
+      https://github.com/AcademySoftwareFoundation/rez/pull/2104.
+
+      If a specific call is intentional (e.g. inside the `real_path`
+      implementation itself), suppress it inline with a trailing `# nosemgrep:
+      no-os-path-realpath` comment and a short justification.
+    pattern: os.path.realpath($...ARGS)
+    fix: rez.utils.filesystem.real_path($...ARGS)
+    paths:
+      exclude:
+        - "/src/rez/vendor/**"
+        - /install.py
+        - /release-rez.py
+        - /setup.py
+    metadata:
+      category: portability
+
+  - id: no-shutil-rmtree
+    languages:
+      - python
+    severity: HIGH
+    message: |-
+      `shutil.rmtree` is prone to error on macOS for python < 3.13.
+      Use `rez.utils.filesystem.safe_rmtree` instead.
+
+      See https://github.com/AcademySoftwareFoundation/rez/pull/1716
+      for more details.
+    pattern: shutil.rmtree($...ARGS)
+    fix: rez.utils.filesystem.safe_rmtree($...ARGS)
+    paths:
+      exclude:
+        - "/src/rez/vendor/**"
+        - /install.py
+        - /release-rez.py
+        - /setup.py
+    metadata:
+      category: portability
