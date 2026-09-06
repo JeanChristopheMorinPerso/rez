@@ -47,6 +47,17 @@ def _disable_fd_9():
 
 
 class TestImports(TestBase):
+    def test_builtin_parser_skips_command_plugin_discovery(self) -> None:
+        with patch("rez.cli._util.load_plugin_cmd",
+                   side_effect=AssertionError("plugins discovered")):
+            parser = setup_parser(include_plugins=False)
+
+        subparsers = next(
+            action for action in parser._actions
+            if isinstance(action, argparse._SubParsersAction)
+        )
+        self.assertIn("env", subparsers.choices)
+
     def test_1(self) -> None:
         """run -h option on every cli tool"""
 

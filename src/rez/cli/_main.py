@@ -10,7 +10,7 @@ from __future__ import annotations
 import sys
 import importlib
 from argparse import _StoreTrueAction, SUPPRESS
-from rez.cli._util import subcommands, LazyArgumentParser, _env_var_true
+from rez.cli._util import get_subcommands, LazyArgumentParser, _env_var_true
 from rez.utils.logging_ import print_error
 from rez.exceptions import RezError, RezSystemError, _NeverError
 from rez import __version__, module_root_path
@@ -82,7 +82,7 @@ class InfoAction(_StoreTrueAction):
         sys.exit(0)
 
 
-def setup_parser():
+def setup_parser(include_plugins=True):
     """Create and setup parser for given rez command line interface.
 
     Returns:
@@ -106,6 +106,8 @@ def setup_parser():
     #     "rez-build" - ie, this will work: "rez-build --debug"
     _add_common_args(parser)
 
+    subcommands = get_subcommands(include_plugins)
+
     # add lazy subparsers
     subparser = parser.add_subparsers(dest='cmd', metavar='COMMAND')
     for subcommand, data in subcommands.items():
@@ -127,17 +129,18 @@ def run(command=None):
     # construct args list. Note that commands like 'rez-env foo' and
     # 'rez env foo' are equivalent
     #
+    subcommands = get_subcommands(include_plugins=False)
     if command:
         # like 'rez-foo arg1 arg2'
         args = [command] + sys.argv[1:]
         _hyphened_command = True
-    elif len(sys.argv) > 1 and sys.argv[1] in subcommands:
-        # like 'rez foo arg1 arg2'
-        command = sys.argv[1]
-        args = sys.argv[1:]
     else:
-        # like 'rez -i'
         args = sys.argv[1:]
+        if args and args[0] not in subcommands and not args[0].startswith('-'):
+            subcommands = get_subcommands()
+        if args and args[0] in subcommands:
+            # like 'rez foo arg1 arg2'
+            command = args[0]
 
     # parse args depending on subcommand behaviour
     if command:
@@ -145,7 +148,7 @@ def run(command=None):
     else:
         arg_mode = None
 
-    parser = setup_parser()
+    parser = setup_parser(include_plugins=(command is None))
     if arg_mode == "grouped":
         # args split into groups by '--'
         arg_groups = [[]]

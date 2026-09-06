@@ -18,9 +18,11 @@ def setup_parser(parser, completions: bool = False) -> None:
 
 
 def command(opts, parser, extra_arg_groups=None) -> None:
-    from rez.cli._util import subcommands
+    from rez.cli._util import get_subcommands
     import os
     import re
+
+    subcommands = get_subcommands()
 
     # get comp info from environment variables
     comp_line = os.getenv("COMP_LINE", "")

@@ -121,7 +121,17 @@ def load_plugin_cmd():
     return ext_plugins
 
 
-subcommands.update(load_plugin_cmd())
+_plugin_commands_loaded = False
+
+
+def get_subcommands(include_plugins=True):
+    """Return commands, optionally discovering command plugins."""
+    global _plugin_commands_loaded
+
+    if include_plugins and not _plugin_commands_loaded:
+        subcommands.update(load_plugin_cmd())
+        _plugin_commands_loaded = True
+    return subcommands
 
 
 class LazySubParsersAction(_SubParsersAction):
